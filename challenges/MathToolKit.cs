@@ -26,7 +26,7 @@ namespace cs_notes_and_code.challenges
 
         public static double Average(int a, int b)
         {
-            return (a + b) / 2;
+            return (a + b) / 2.0;
         }
 
         public static double Average(int a, int b, int c)
