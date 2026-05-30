@@ -31,7 +31,7 @@ namespace cs_notes_and_code.challenges
 
         public static double Average(int a, int b, int c)
         {
-            return (a + b + c) / 3;
+            return (a + b + c) / 3.0;
         }
 
         public static double Average(double[] numbers)
