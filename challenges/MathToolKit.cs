@@ -10,8 +10,8 @@ namespace cs_notes_and_code.challenges
     {
         public static double CalculateHypotenuse(double sideA, double sideB)
         {
-            double triangleArea = sideA + sideB;
-            return Math.Sqrt(triangleArea);
+            double hypotenuse = Math.Sqrt(Math.Pow(sideA, 2) + Math.Pow(sideB, 2));
+            return Math.Sqrt(hypotenuse);
         }
 
         public static double CalculatePercentage(double amount, double total = 100.0)
