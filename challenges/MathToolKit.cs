@@ -61,11 +61,7 @@ namespace cs_notes_and_code.challenges
             {
                 throw new DivideByZeroException("Cannot divide by 0");
             }
-
-            else
-            {
-                return a / b;
-            }
+            return a / b;
         }
 
         public static double Potentiation(int a, int b)
