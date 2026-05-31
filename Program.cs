@@ -1,11 +1,15 @@
-﻿using cs_notes_and_code.challenges;
+﻿using cs_notes_and_code.challenges.ContactBook;
 
-double result1 = MathToolKit.Average(5, 10);
-Console.WriteLine($"Test 1 (2-Params): Expected 7.5 | Got: {result1}");
+Console.WriteLine("Contact Book. Program started...");
+Console.WriteLine("Listing contacts...");
 
-double result2 = MathToolKit.Average(10, 20, 30);
-Console.WriteLine($"Test 2 (3-Params): Expected 20.0 | Got: {result2}");
+List<Contact> contacts = new List<Contact>();
 
-double[] prices = { 1.5, 2.5, 4.0, 6.0 };
-double result3 = MathToolKit.Average(prices);
-Console.WriteLine($"Test 3(Array): Expected 3.5 | Got: {result3}");
+Contact newContact = new Contact { Name = "Henrique", Phone = "17991886146" };
+
+contacts.Add(newContact);
+
+foreach(var contact in contacts)
+{
+    Console.WriteLine($"Contact list is ready... {contact.Name}, {contact.Phone}");
+}
