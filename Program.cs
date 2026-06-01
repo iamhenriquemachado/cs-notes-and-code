@@ -1,15 +1,26 @@
 ﻿using cs_notes_and_code.challenges.ContactBook;
 
-Console.WriteLine("Contact Book. Program started...");
-Console.WriteLine("Listing contacts...");
 
-List<Contact> contacts = new List<Contact>();
+// Instantiate the class 
+ContactBook cBook = new ContactBook();
+List<Contact> c = new List<Contact>();
 
-Contact newContact = new Contact { Name = "Henrique", Phone = "17991886146" };
 
-contacts.Add(newContact);
+Contact listOfContacts = new Contact { 
+    Id = 1,
+    Name = "Henrique de Castro Machado",
+    Phone = "+5517991886146",
+    Email = "heyhenriquecastro@gmail.com"
+};
 
-foreach(var contact in contacts)
-{
-    Console.WriteLine($"Contact list is ready... {contact.Name}, {contact.Phone}");
-}
+//string name = "Henrique de Castro Machado";
+//string phone = "+5517991886146";
+//string? email = "heyhenriquecastro@gmail.com";
+
+
+cBook.AddContact(c, listOfContacts.Id, listOfContacts.Name, listOfContacts.Phone, listOfContacts.Email);
+
+cBook.RemoveContact(c, 1);
+
+
+cBook.ListContacts(c);
