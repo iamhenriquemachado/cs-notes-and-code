@@ -1,10 +1,8 @@
 ﻿using cs_notes_and_code.challenges.ContactBook;
 
 
-// Instantiate the class 
-Dictionary<string, Contact> contactList = new Dictionary<string, Contact>();
+Contact contact = new Contact() { Name = "John Smith", Phone = "+15551234567", Email = "john.smith@email.com" };
 
-ContactBook cBook = new ContactBook();
-List<Contact> c = new List<Contact>();
+ContactBook cOperations = new ContactBook();
 
-
+cOperations.AddContact(111, contact.Name, contact.Phone, contact.Email);

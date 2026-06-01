@@ -5,51 +5,52 @@ namespace cs_notes_and_code.challenges.ContactBook
 {
     internal class ContactBook
     {
+        private HashSet<string> _registeredEmail = new HashSet<string>();
+        private Dictionary<int, Contact> _contactList = new Dictionary<int, Contact>();
 
-        HashSet<string> _registeredEmail = new HashSet<string>();
-        Dictionary<string, Contact> contactList = new Dictionary<string, Contact>();
-        public void AddContact(Dictionary<string, Contact> c, int id, string name, string phone, string? email)
+        public void AddContact(int uniqueId, string name, string phone, string? email)
         {
-            Contact newContact = new Contact
-            {   Id = id, 
-                Name = name,
-                Phone = phone,
-                Email = email ?? "No Email Provided"
-            };
-
-            string normalizedEmail = email.ToLower();
-
-            if (_registeredEmail.Contains(normalizedEmail))
+            if (email != null)
             {
-                Console.WriteLine($"Email already registered in the application {normalizedEmail}");
-                return;
+                string normalizedEmail = email.ToLower().Trim();
+
+                if (_registeredEmail.Contains(normalizedEmail))
+                {
+                    Console.WriteLine($"Email already registered in the application {normalizedEmail}");
+                    return;
+                }
+
+                Contact newContact = new Contact
+                {
+                    Name = name,
+                    Phone = phone,
+                    Email = email ?? "No Email Provided"
+                };
+                _contactList.Add(uniqueId, newContact);
+
+                _registeredEmail.Add(normalizedEmail);
             }
 
-            myContacts.Add(newContact);
-            Console.WriteLine($"Contact added to the list...");
-            Console.WriteLine($"Contact Data -  Name {name}, Phone {phone}, Email {email}");
+            Console.WriteLine($"Contact {name} added with ID {uniqueId}!");
         }
 
-        public void RemoveContact(List<Contact> myContacts, int id)
+        public void RemoveContactById(int id)
         {
-
             bool found = false;
 
-            for (int i = myContacts.Count - 1; i >= 0; i--)
+            if (_contactList.TryGetValue(id, out var contact))
             {
-                if (myContacts[i].Id == id)
+                var email = contact.Email;
+
+                if (email != "No Email Provided")
                 {
-
-                    if (myContacts[i].Email != "No Email Provider")
-                    {
-                        _registeredEmail.Remove(myContacts[i].Email.ToLower());
-                        Console.WriteLine("Email already exists in the list");
-                    }
-                    myContacts.RemoveAt(i);
-
-                    found = true;
-                    Console.WriteLine("Contact removed");
+                    _registeredEmail.Remove(email);
                 }
+
+                _contactList.Remove(id);
+                found = true;
+
+                Console.WriteLine("Contact removed");
             }
 
             if (!found)
@@ -58,22 +59,12 @@ namespace cs_notes_and_code.challenges.ContactBook
             }
         }
 
-        public void ListContact(Dictionary<string, Contact> contacts, string name)
+        public void ListContact()
         {
-            foreach (string code in contacts.Keys)
+            foreach (var contact in _contactList.Values)
             {
-                if (code ==  name)
-                {
-                    Console.WriteLine($"Contact found");
-                }
+                Console.WriteLine($"Refreshing... Contact List: {contact.Name} - {contact.Email} - {contact.Phone}");
             }
-             //for (int i = contacts.Count - 1; i>= 0; i--)
-            //{
-            //    if (contacts[i].Name == name)
-            //    {
-            //        Console.WriteLine($"Contact found: {contacts[i].Name}");
-            //    }
-            //}
         }
     }
 }
