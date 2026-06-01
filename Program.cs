@@ -1,8 +1,10 @@
-﻿using cs_notes_and_code.challenges.ContactBook;
+﻿using cs_notes_and_code.challenges.BookLibrary;
+using cs_notes_and_code.challenges.ContactBook;
 
 
-Contact contact = new Contact() { Name = "John Smith", Phone = "+15551234567", Email = "john.smith@email.com" };
+Book book = new Book() { Title = "The Great Gatsby", Author = "F. Scott Fitzgerald", Isbn = "" };
 
-ContactBook cOperations = new ContactBook();
+BookLibrary bookLibrary = new BookLibrary();
 
-cOperations.AddContact(111, contact.Name, contact.Phone, contact.Email);
+bookLibrary.AddBook(book.Title, book.Author, book.Isbn);
+bookLibrary.SearchByTitle("The Great Gatsby");
