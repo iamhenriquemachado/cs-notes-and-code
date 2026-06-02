@@ -1,61 +1,85 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Xml.Linq;
-
+using System.Collections.Generic;
+using System.Linq;
 
 namespace cs_notes_and_code.challenges.ProductSystemCrud
 {
-
     internal class ProductRepository
     {
-        private List<Product> _product = new List<Product>();
+        private readonly List<Product> _products = new List<Product>();
 
         public void AddProduct(int id, string name, decimal price, int stock)
         {
             Product product = new(id, name, price, stock);
+            _products.Add(product);
 
-            _product.Add(product);
-
-            Console.WriteLine($"Adding product to the list...");
-            Console.WriteLine($"New product added {product.Id} - {product.Name} -  {product.Price} - {product.Stock} - {product.TotalStockValue}");
+            Console.WriteLine("Adding product to the list...");
+            Console.WriteLine($"New product added: {product.Id} - {product.Name} - {product.Price:C} - {product.Stock} units - Total Value: {product.TotalStockValue:C}");
         }
 
         public void SearchById(int id)
         {
-            bool found = false;
+            
+            var searchItemById = _products.FirstOrDefault(product => product.Id == id);
 
-            var searchItemById = _product.Where(product => product.Id == id)
-                .FirstOrDefault();
-
-            if (searchItemById.Id != null)
+            
+            if (searchItemById != null)
             {
-                found = true;
                 Console.WriteLine("Item found...");
-                Console.WriteLine($"{searchItemById.Name.ToString()}");
+                Console.WriteLine($"{searchItemById.Name}"); 
             }
-
-            if (!found)
+            else
             {
                 Console.WriteLine("Item not found...");
             }
-            
         }
 
         public void RemoveById(int id)
         {
-            bool found = false;
+            var searchItemById = _products.FirstOrDefault(product => product.Id == id);
 
-            var searchItemById = _product.Where(product => product.Id == id).FirstOrDefault();
-
-            if (searchItemById !=  null)
+            if (searchItemById != null)
             {
-                found = true;
+                _products.Remove(searchItemById);
                 Console.WriteLine("Item deleted...");
             }
-
-            if(!found)
+            else
             {
                 Console.WriteLine("Item not found...");
+            }
+        }
+
+        public void UpdateById(int id, string name, decimal price, int stock)
+        {
+            var searchItemById = _products.FirstOrDefault(product => product.Id == id);
+
+            if (searchItemById != null)
+            {
+                searchItemById.Name = name;
+                searchItemById.Price = price;
+                searchItemById.Stock = stock;
+
+                Console.WriteLine("Product updated...");
+                Console.WriteLine($"Updated Name: {searchItemById.Name}");
+            }
+            else
+            {
+                Console.WriteLine("Item not found");
+            }
+        }
+
+        public void ListAll()
+        {
+
+            if (!_products.Any())
+            {
+                Console.WriteLine("The product catalog is currently empty.");
+                return;
+            }
+
+            foreach (var product in _products)
+            {
+                Console.WriteLine($"Product name: {product.Name} / Product ID: {product.Id}");
             }
         }
     }
