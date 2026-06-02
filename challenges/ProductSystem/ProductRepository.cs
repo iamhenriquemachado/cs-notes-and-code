@@ -49,7 +49,13 @@ namespace cs_notes_and_code.challenges.ProductSystemCrud
 
             if (searchItemById !=  null)
             {
+                found = true;
+                Console.WriteLine("Item deleted...");
+            }
 
+            if(!found)
+            {
+                Console.WriteLine("Item not found...");
             }
         }
     }
