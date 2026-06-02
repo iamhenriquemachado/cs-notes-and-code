@@ -1,10 +1,10 @@
-﻿using cs_notes_and_code.challenges.BookLibrary;
-using cs_notes_and_code.challenges.ContactBook;
+﻿using cs_notes_and_code.challenges.ProductSystemCrud;
+
+ProductRepository pRepository = new ProductRepository();
 
 
-Book book = new Book() { Title = "The Great Gatsby", Author = "F. Scott Fitzgerald", Isbn = "" };
+string name = "Mechanical Keyboard";
+decimal price = 299.90m;
+int stock = 15;
 
-BookLibrary bookLibrary = new BookLibrary();
-
-bookLibrary.AddBook(book.Title, book.Author, book.Isbn);
-bookLibrary.SearchByTitle("The Great Gatsby");
+pRepository.AddProduct(name, price, stock);

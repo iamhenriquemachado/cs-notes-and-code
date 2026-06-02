@@ -4,7 +4,8 @@ namespace cs_notes_and_code.challenges.ProductSystemCrud
 {
     internal class Product
     {
-        public int Id { get; init; }
+
+        public string Id { get; init; } 
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
@@ -12,9 +13,15 @@ namespace cs_notes_and_code.challenges.ProductSystemCrud
 
         public Product(string name, decimal price, int stock)
         {
+
+            Guid uniqueId = Guid.NewGuid();
+            string uuid = uniqueId.ToString();
+
+            this.Id = uuid;
             this.Name = name;
             this.Price = price;
             this.Stock = stock;
+            this.TotalStockValue = Price * Stock;
 
             if (name == null || name == "")
             {
@@ -26,7 +33,6 @@ namespace cs_notes_and_code.challenges.ProductSystemCrud
                 throw new ArgumentException("Price cannot be equal or less than 0.");
             }
 
-            this.TotalStockValue = Price * Stock;
         }
     }
 }
