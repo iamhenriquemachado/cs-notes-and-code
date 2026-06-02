@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cs_notes_and_code.challenges
+namespace cs_notes_and_code.challenges.MathToolKit
 {
     internal class MathToolKit
     {
@@ -20,7 +20,7 @@ namespace cs_notes_and_code.challenges
             {
                 Console.WriteLine("The total should be greater than 0");
             }
-            return (amount / total) * 100;
+            return amount / total * 100;
 
         }
 
