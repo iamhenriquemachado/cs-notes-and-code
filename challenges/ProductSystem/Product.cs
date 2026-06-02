@@ -5,19 +5,19 @@ namespace cs_notes_and_code.challenges.ProductSystemCrud
     internal class Product
     {
 
-        public string Id { get; init; } 
+        public int Id { get; init; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
         public decimal TotalStockValue { get; }
 
-        public Product(string name, decimal price, int stock)
+        public Product(int id, string name, decimal price, int stock)
         {
 
-            Guid uniqueId = Guid.NewGuid();
-            string uuid = uniqueId.ToString();
+            //Guid uniqueId = Guid.NewGuid();
+            //string uuid = uniqueId.ToString();
 
-            this.Id = uuid;
+            this.Id = id;
             this.Name = name;
             this.Price = price;
             this.Stock = stock;
@@ -34,5 +34,7 @@ namespace cs_notes_and_code.challenges.ProductSystemCrud
             }
 
         }
+
+        
     }
 }

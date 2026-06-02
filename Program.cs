@@ -2,9 +2,10 @@
 
 ProductRepository pRepository = new ProductRepository();
 
-
+int id = 10001;
 string name = "Mechanical Keyboard";
 decimal price = 299.90m;
 int stock = 15;
 
-pRepository.AddProduct(name, price, stock);
+pRepository.AddProduct(id, name, price, stock);
+
