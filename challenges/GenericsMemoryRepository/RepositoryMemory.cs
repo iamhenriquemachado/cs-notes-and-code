@@ -13,12 +13,13 @@ namespace cs_notes_and_code.challenges.GenericsMemoryRepository
         public void Add(T entity)
         {
             _list.Add(entity);
+            Console.WriteLine($"Entity added with Id: {entity.Id}");
         }
 
-        public void SearchById(int id)
+        public T? SearchById(int id)
         {
-            var result = _list.Where(l => l.Id == id).FirstOrDefault();
-            Console.WriteLine($"Result {result}");
+            var result = _list.FirstOrDefault(item => item.Id == id);
+            return result;
         }
 
         public IReadOnlyList<T> List()
@@ -28,7 +29,18 @@ namespace cs_notes_and_code.challenges.GenericsMemoryRepository
 
         public void RemoveById(int id)
         {
-            _list.RemoveAt(id);
+            var result = _list.FirstOrDefault(item => item.Id == id);
+
+            if (result != null)
+            {
+                _list.RemoveAt(result.Id);
+
+            }
+            else
+            {
+
+                Console.WriteLine("Item ID not found.");
+            }
         }
     }
 }
