@@ -1,25 +1,16 @@
 ﻿using cs_notes_and_code.challenges.EmployeeSystem;
+using cs_notes_and_code.challenges.NotificationSystem;
+using cs_notes_and_code.challenges.NotificationSystem.Interfaces;
 
-List<Employee> employee = new List<Employee>();
+DateTime dateSent =  DateTime.UtcNow;
 
-employee.Add(new Manager("Jane Doe", 10.000m));
-employee.Add(new SalesPerson("John Doe", 4.000m, 0.5m));
-employee.Add(new Intern("Rick Doe", 1.000m));
+//  Email
+INotifier notifier = new EmailNotifier();
+AlertService alertService = new AlertService(notifier);
+alertService.SendAlert("hello@gmail.com", "Hello! This is my first implementation of Dependency Injection.", dateSent); 
 
-foreach (var e in employee)
 
-{
-    if (e is Manager manager)
-    {
-        Console.WriteLine($"Manager Salary list: {manager.Name} - {manager.GetBonus()}");
-    }
-    if (e is SalesPerson salesPerson)
-    {
-        Console.WriteLine($"SalesPerson Salary list: {salesPerson.Name} - {salesPerson.GetBonus()}");
-    }
-    if (e is Intern intern)
-    {
-        Console.WriteLine($"Intern Salary list: {intern.Name} - {intern.GetBonus()}");
-    }
-
-}
+// SMS
+INotifier smsNotifier = new SmsNotifier();
+AlertService alertService1 = new AlertService(smsNotifier);
+alertService1.SendAlert("Jane Doe", "Hi, Jane! Do you want to hang out tonight?", dateSent);

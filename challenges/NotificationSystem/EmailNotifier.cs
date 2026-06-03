@@ -10,10 +10,10 @@ namespace cs_notes_and_code.challenges.NotificationSystem
     internal class EmailNotifier : INotifier
     {
 
-        public void Send(string recipient, string message, DateTime dateSent)
+        public void Send(string recipient, string text, DateTime dateSent)
         {
             Console.WriteLine($"Recipient: {recipient}");
-            Console.WriteLine($"Message: {message}");
+            Console.WriteLine($"Message: {text}");
             Console.WriteLine($"Date Sent: {dateSent}");
 
         }
