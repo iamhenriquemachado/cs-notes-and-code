@@ -1,11 +1,7 @@
-﻿using cs_notes_and_code.challenges.ProductSystemCrud;
+﻿using cs_notes_and_code.challenges.EmployeeSystem;
 
-ProductRepository pRepository = new ProductRepository();
+Employee e = new Manager("Henrique de Castro Machado", 5000.0m);
 
-int id = 10001;
-string name = "Mechanical Keyboard";
-decimal price = 299.90m;
-int stock = 15;
+var bonus = e.GetBonus();
 
-pRepository.AddProduct(id, name, price, stock);
-
+Console.WriteLine($"This is your bonus: ${bonus}");
