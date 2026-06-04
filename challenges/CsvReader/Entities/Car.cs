@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace cs_notes_and_code.challenges.CsvReader.Entities
 {
-    internal class Car : IEntity
+    internal class Car 
     {
         public int Id { get; set; }
         public string Name { get; set; }

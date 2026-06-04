@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsvHelper;
 
 namespace cs_notes_and_code.challenges.GenericsMemoryRepository
 {

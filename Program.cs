@@ -1,12 +1,11 @@
-﻿using cs_notes_and_code.challenges.GenericsMemoryRepository;
+﻿using cs_notes_and_code.challenges.CsvReader;
+using cs_notes_and_code.challenges.CsvReader.Interfaces;
 
-RepositoryMemory<Product> product = new();
-RepositoryMemory<Customer> customer = new();
+ICar c = new CsvBuilder();
 
-Product pModel = new() {
-    Name = "Macbook",
-    Price = 100.0m,
-    Id = 001
-};
-    
-product.Add(pModel);
+var carList = c.List();
+
+foreach(var car in carList)
+{
+    Console.WriteLine($"{car.Name} {car.Id}");
+}

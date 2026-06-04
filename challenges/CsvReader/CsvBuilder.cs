@@ -1,49 +1,44 @@
-﻿using cs_notes_and_code.challenges.GenericsMemoryRepository;
+﻿using cs_notes_and_code.challenges.CsvReader;
+using cs_notes_and_code.challenges.CsvReader.Entities;
+using cs_notes_and_code.challenges.CsvReader.Interfaces;
+using cs_notes_and_code.challenges.GenericsMemoryRepository;
+using CsvHelper;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace cs_notes_and_code.challenges.CsvReader
 {
-    internal class CsvBuilder<T> : IRepository<T> where T : class, IEntity
+    internal class CsvBuilder : ICar
     {
-        List<T> _list = new List<T>();
 
-        public bool CreateCsvFile()
+        private readonly List<Car> _carList = new List<Car>();
+
+        public void Add(Car car)
         {
-            string filePath = @"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\Entity.csv";
+            throw new NotImplementedException();
+        }
 
-            if (!File.Exists(filePath))
+        public void DeleteById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IReadOnlyList<Car> List()
+        {
+            using (var reader = new StreamReader(@"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv"))
+            using (var csvReader = new CsvHelper.CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                File.Create(filePath);
-                Console.WriteLine($"Path and File Created at: {filePath}");
-
-                return true;
+                var result = csvReader.GetRecords<Car>().ToList();
+                return result;
             }
-            else
-            {
-                return false;
-            }
-
-        }
-        public void Add(T entity)
-        {
-            throw new NotImplementedException();
         }
 
-        public IReadOnlyList<T> List()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public T? SearchById(int id)
+        public void SearchById(int id)
         {
             throw new NotImplementedException();
         }
