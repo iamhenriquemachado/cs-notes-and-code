@@ -9,6 +9,25 @@ namespace cs_notes_and_code.challenges.CsvReader
 {
     internal class CsvBuilder<T> : IRepository<T> where T : class, IEntity
     {
+        List<T> _list = new List<T>();
+
+        public bool CreateCsvFile()
+        {
+            string filePath = @"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\Entity.csv";
+
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath);
+                Console.WriteLine($"Path and File Created at: {filePath}");
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
         public void Add(T entity)
         {
             throw new NotImplementedException();
