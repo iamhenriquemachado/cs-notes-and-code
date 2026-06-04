@@ -1,5 +1,6 @@
 ﻿using cs_notes_and_code.challenges.CsvReader;
 using cs_notes_and_code.challenges.CsvReader.Entities;
+using cs_notes_and_code.challenges.CsvReader.Exceptions;
 using cs_notes_and_code.challenges.CsvReader.Interfaces;
 using cs_notes_and_code.challenges.GenericsMemoryRepository;
 using CsvHelper;
@@ -18,9 +19,39 @@ namespace cs_notes_and_code.challenges.CsvReader
 
         private readonly List<Car> _carList = new List<Car>();
 
-        public void Add(Car car)
+        public void Add(List<Car> cars)
         {
-            throw new NotImplementedException();
+
+            // Implementing Guard Clauses before the method running
+            if (cars.Count == 0) throw new ArgumentException("The list is empty...");
+            if (cars == null) throw new InvalidOperationException("Cannot process a null list...");
+
+            foreach(var car in cars)
+            {
+                // Check null fields
+                if (car.Id == null) throw new ArgumentNullException("Id cannot be null");
+                if (car.Name == null) throw new ArgumentNullException("Id cannot be null");
+                if (car.Year == null) throw new ArgumentNullException("Id cannot be null");
+                if (car.Brand == null) throw new ArgumentNullException("Id cannot be null");
+                if (car.Type == null) throw new ArgumentNullException("Id cannot be null");
+            }
+
+            try
+            {
+
+                using (var writer = new StreamWriter(@"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv", true))
+                using (var csvWriter = new CsvHelper.CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    Console.WriteLine("Inserting new cars on the list");
+                    csvWriter.WriteRecords(cars);
+                }
+            }
+            catch (CsvInvalidException e)
+            {
+
+                Console.WriteLine($"CSV invalid exception: {e.ViolatingValue}");
+            }
+
         }
 
         public void DeleteById(int id)

@@ -49,3 +49,14 @@ Id,Name,Brand,Year,Type
 48,Model 48,Frontier,2023,Van
 49,Model 49,Apex,2024,Sedan
 50,Model 50,Velocity,2025,SUV
+Id,Name,Brand,Year,Type
+51,Mustang GT,Ford,2022,Coupe
+52,Civic Touring,Honda,2021,Sedan
+53,Corolla Cross,Toyota,2023,SUV
+54,Camaro SS,Chevrolet,2020,Coupe
+55,Ranger XLT,Ford,2022,Truck
+56,Compass Limited,Jeep,2021,SUV
+57,HB20 Platinum,Hyundai,2024,Hatchback
+58,Onix Premier,Chevrolet,2023,Hatchback
+59,Tiguan R-Line,Volkswagen,2022,SUV
+60,320i Sport,BMW,2021,Sedan

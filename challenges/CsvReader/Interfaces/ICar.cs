@@ -9,7 +9,7 @@ namespace cs_notes_and_code.challenges.CsvReader.Interfaces
 {
     internal interface ICar
     {
-        void Add(Car car);
+        void Add(List<Car> car);
         void DeleteById(int id);
         IReadOnlyList<Car> List();
         void SearchById(int id);
