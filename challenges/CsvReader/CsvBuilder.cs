@@ -26,7 +26,7 @@ namespace cs_notes_and_code.challenges.CsvReader
             if (cars.Count == 0) throw new ArgumentException("The list is empty...");
             if (cars == null) throw new InvalidOperationException("Cannot process a null list...");
 
-            foreach(var car in cars)
+            foreach (var car in cars)
             {
                 // Check null fields
                 if (car.Id == null) throw new ArgumentNullException("Id cannot be null");
@@ -56,7 +56,33 @@ namespace cs_notes_and_code.challenges.CsvReader
 
         public void DeleteById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = _carList.FirstOrDefault(car => car.Id == id);
+
+                using (var writer = new StreamWriter(@"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv"))
+
+                using (var csv = new CsvHelper.CsvReader(writer, CultureInfo.InvariantCulture))
+                {
+                    _carList = csv.GetRecords<Car>().ToList();
+
+                    for(int i = 0; _carList.Count; ++i)
+                    {
+                        
+                    }
+                }
+
+                    if (result != null)
+                    {
+                        _carList.RemoveAt(result.Id);
+                        Console.WriteLine("Car removed from the list...");
+                    }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IReadOnlyList<Car> List()
