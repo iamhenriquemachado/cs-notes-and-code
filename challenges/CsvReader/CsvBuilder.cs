@@ -18,18 +18,17 @@ namespace cs_notes_and_code.challenges.CsvReader
     {
 
         private List<Car> _records = new List<Car>();
+        string filePath = @"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv";
 
         public void Add(List<Car> cars)
         {
 
             if (cars == null) throw new ArgumentNullException("The list cannot be null...");
 
-            _records.AddRange(cars);
-
             try
             {
-
-                foreach (var car in _records)
+                Console.WriteLine("Inserting new cars on the list");
+                foreach (var car in cars)
                 {
                     if (car.Year < 2000)
                     {
@@ -38,17 +37,25 @@ namespace cs_notes_and_code.challenges.CsvReader
                             violatingValue: car.Year,
                             ruleName: 101
                          );
-                    } else
-                    {
-                        using (var writer = new StreamWriter(@"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv", true))
-                        using (var csvWriter = new CsvHelper.CsvWriter(writer, CultureInfo.InvariantCulture))
-                        {
-                            Console.WriteLine("Inserting new cars on the list");
-                            csvWriter.WriteRecords(_records);
-                        }
                     }
                 }
 
+                using (var writer = new StreamWriter(filePath, true))
+                using (var csv = new CsvHelper.CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    if (new FileInfo(filePath).Length == 0)
+                    {
+                        csv.WriteHeader<Car>();
+                        csv.NextRecord();
+                    }
+                    foreach (var car in cars)
+                    {
+                        csv.WriteRecord(car);
+                        csv.NextRecord();
+
+                    }
+                    _records.AddRange(cars);
+                }
 
             }
             catch (CsvInvalidException e)
