@@ -1,27 +1,34 @@
 ﻿using cs_notes_and_code.challenges.CsvReader;
 using cs_notes_and_code.challenges.CsvReader.Entities;
 using cs_notes_and_code.challenges.CsvReader.Interfaces;
+using cs_notes_and_code.challenges.Day_19_20;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
-ICar c = new CsvBuilder();
+Reports reports = new Reports();
 
-List<Car> carList = new List<Car>
+List<Product> products = new List<Product>
 {
-    new Car { Id = 15, Name = "Ferrari Purosangue", Brand = "Ferrari", Year = 2026, Type = "Sport" },
-    new Car { Id = 16, Name = "911 Turbo S", Brand = "Porsche", Year = 2025, Type = "Sport" },
-    new Car { Id = 17, Name = "Mustang GT", Brand = "Ford", Year = 2024, Type = "Muscle" },
-    new Car { Id = 18, Name = "Camaro SS", Brand = "Chevrolet", Year = 2024, Type = "Muscle" },
-    new Car { Id = 19, Name = "Civic Type R", Brand = "Honda", Year = 2025, Type = "Hatchback" },
-    new Car { Id = 20, Name = "Corolla Cross", Brand = "Toyota", Year = 2025, Type = "SUV" },
-    new Car { Id = 21, Name = "Model 3 Performance", Brand = "Tesla", Year = 2025, Type = "Electric" },
-    new Car { Id = 22, Name = "X5 M Competition", Brand = "BMW", Year = 2026, Type = "SUV" },
-    new Car { Id = 23, Name = "A45 S AMG", Brand = "Mercedes-Benz", Year = 2025, Type = "Hatchback" },
-    new Car { Id = 24, Name = "RS6 Avant", Brand = "Audi", Year = 2025, Type = "Wagon" },
-    new Car { Id = 25, Name = "Range Rover Sport", Brand = "Land Rover", Year = 2026, Type = "SUV" },
-    new Car { Id = 26, Name = "Wrangler Rubicon", Brand = "Jeep", Year = 2025, Type = "Off-Road" },
-    new Car { Id = 27, Name = "Golf GTI", Brand = "Volkswagen", Year = 2024, Type = "Hatchback" },
-    new Car { Id = 28, Name = "CX-5", Brand = "Mazda", Year = 2025, Type = "SUV" },
-    new Car { Id = 29, Name = "Altima SR", Brand = "Nissan", Year = 2025, Type = "Sedan" },
-    new Car { Id = 30, Name = "Charger Scat Pack", Brand = "Dodge", Year = 2023, Type = "Muscle" }
+    new Product { Id = 1, Name = "Notebook Dell Inspiron", SalesPerson = "Carlos Silva", Value = 4599.90m, Date = DateTime.UtcNow },
+    new Product { Id = 2, Name = "Mouse Logitech G502", SalesPerson = "Ana Souza", Value = 349.90m, Date = DateTime.UtcNow },
+    new Product { Id = 3, Name = "Monitor LG UltraWide", SalesPerson = "Bruno Costa", Value = 1899.99m, Date = DateTime.UtcNow },
+    new Product { Id = 4, Name = "Teclado Mecânico Redragon", SalesPerson = "Fernanda Lima", Value = 429.90m, Date = DateTime.UtcNow },
+    new Product { Id = 5, Name = "iPhone 17", SalesPerson = "Ricardo Alves", Value = 7999.00m, Date = DateTime.UtcNow },
+    new Product { Id = 6, Name = "Samsung Galaxy S26", SalesPerson = "Juliana Martins", Value = 6899.90m, Date = DateTime.UtcNow },
+    new Product { Id = 7, Name = "Apple Watch Series 12", SalesPerson = "Lucas Pereira", Value = 3599.90m, Date = DateTime.UtcNow },
+    new Product { Id = 8, Name = "Kindle Paperwhite", SalesPerson = "Mariana Rocha", Value = 799.90m, Date = DateTime.UtcNow },
+    new Product { Id = 9, Name = "PlayStation 5 Pro", SalesPerson = "Gustavo Mendes", Value = 5499.90m, Date = DateTime.UtcNow },
+    new Product { Id = 10, Name = "Xbox Series X", SalesPerson = "Patrícia Oliveira", Value = 4699.00m, Date = DateTime.UtcNow },
+    new Product { Id = 11, Name = "Cadeira Gamer ThunderX3", SalesPerson = "Diego Santos", Value = 1499.90m, Date = DateTime.UtcNow },
+    new Product { Id = 12, Name = "Headset HyperX Cloud III", SalesPerson = "Camila Ferreira", Value = 699.90m, Date = DateTime.UtcNow },
+    new Product { Id = 13, Name = "Impressora HP LaserJet", SalesPerson = "Rafael Gomes", Value = 1299.90m, Date = DateTime.UtcNow },
+    new Product { Id = 14, Name = "SSD Kingston 1TB", SalesPerson = "Beatriz Almeida", Value = 549.90m, Date = DateTime.UtcNow },
+    new Product { Id = 15, Name = "Memória RAM Corsair 32GB", SalesPerson = "Felipe Barbosa", Value = 899.90m, Date = DateTime.UtcNow },
+    new Product { Id = 16, Name = "Smart TV Samsung 55\"", SalesPerson = "Larissa Castro", Value = 3299.90m, Date = DateTime.UtcNow },
+    new Product { Id = 17, Name = "Caixa de Som JBL Charge 6", SalesPerson = "Eduardo Ribeiro", Value = 999.90m, Date = DateTime.UtcNow },
+    new Product { Id = 18, Name = "Drone DJI Mini 5", SalesPerson = "Vanessa Cardoso", Value = 4999.90m, Date = DateTime.UtcNow },
+    new Product { Id = 19, Name = "Câmera Sony Alpha A7 IV", SalesPerson = "Thiago Moreira", Value = 12999.00m, Date = DateTime.UtcNow },
+    new Product { Id = 20, Name = "MacBook Air M5", SalesPerson = "Renata Nogueira", Value = 10499.90m, Date = DateTime.UtcNow }
 };
 
-c.SearchById(19);
+reports.AddProduct(products);
+reports.Report_TotalSalesPerPerson();
