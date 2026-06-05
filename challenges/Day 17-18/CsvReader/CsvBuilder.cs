@@ -10,7 +10,7 @@ namespace cs_notes_and_code.challenges.CsvReader
     internal class CsvBuilder : ICar
     {
         private List<Car> _records = new List<Car>();
-        string filePath = @"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv";
+        string filePath = @"C:\Users\heyhe\development\cs-notes-and-code\challenges\Day 17-18\CsvReader\Files\entity.csv";
         public void Add(List<Car> cars)
         {
             if (cars == null) throw new ArgumentNullException("The list cannot be null...");
@@ -49,21 +49,35 @@ namespace cs_notes_and_code.challenges.CsvReader
         }
         public void DeleteById(int id)
         {
+
+
             try
             {
-                using (var reader = new StreamReader(filePath, true))
+                using (var reader = new StreamReader(filePath))
                 using (var csv = new CsvHelper.CsvReader(reader, CultureInfo.InvariantCulture))
                 {
-                    _records = csv.GetRecords<Car>().ToList();
-                    for (int i = 0; i < _records.Count; ++i)
+
+                    var result = csv.GetRecords<Car>().ToList();
+
+
+                    if (result != null)
                     {
-                        if (_records[i].Id == id)
+                        var carIdFound = result.FirstOrDefault(car => car.Id == id);
+
+                        if (carIdFound.Id == null)
                         {
-                            _records.RemoveAt(i);
+                            throw new ArgumentException("Id does not exists.");
+                        }
+
+                        else if (carIdFound != null)
+                        {
+                            result.Remove(carIdFound);
+                            _records = result;
                         }
                     }
                 }
-                using (var writer = new StreamWriter(filePath, true))
+
+                using (var writer = new StreamWriter(filePath))
                 using (var csv = new CsvHelper.CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csv.WriteRecords(_records);
@@ -71,6 +85,7 @@ namespace cs_notes_and_code.challenges.CsvReader
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
