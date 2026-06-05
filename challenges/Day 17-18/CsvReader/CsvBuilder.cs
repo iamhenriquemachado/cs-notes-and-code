@@ -2,6 +2,7 @@
 using cs_notes_and_code.challenges.CsvReader.Entities;
 using cs_notes_and_code.challenges.CsvReader.Exceptions;
 using cs_notes_and_code.challenges.CsvReader.Interfaces;
+using System;
 using System.Globalization;
 
 
@@ -95,12 +96,40 @@ namespace cs_notes_and_code.challenges.CsvReader
             using (var csvReader = new CsvHelper.CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 var result = csvReader.GetRecords<Car>().ToList();
+
+                Console.WriteLine("ID  | Name                  | Brand           | Year | Type");
+                Console.WriteLine("----+-----------------------+-----------------+------+-----------");
+
+                foreach (var r in result)
+                {
+                    Console.WriteLine($"{r.Id,-3} | {r.Name,-21} | {r.Brand,-15} | {r.Year} | {r.Type}");
+                }
                 return result;
             }
         }
         public void SearchById(int id)
         {
-            throw new NotImplementedException();
+            using (var reader = new StreamReader(filePath))
+            using (var csvReader = new CsvHelper.CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var result = csvReader.GetRecords<Car>().ToList();
+
+                Console.WriteLine("ID  | Name                  | Brand           | Year | Type");
+                Console.WriteLine("----+-----------------------+-----------------+------+-----------");
+
+                var cardIdFound = result.FirstOrDefault(car => car.Id == id);
+
+                if (cardIdFound == null)
+                {
+                    throw new ArgumentException("Card ID not found;");
+                }
+
+                else if(cardIdFound != null)
+                {
+                    Console.WriteLine($"{cardIdFound.Id,-3} | {cardIdFound.Name,-21} | {cardIdFound.Brand,-15} | {cardIdFound.Year} | {cardIdFound.Type}");
+                }
+
+            }
         }
     }
 }
