@@ -17,38 +17,42 @@ namespace cs_notes_and_code.challenges.CsvReader
     internal class CsvBuilder : ICar
     {
 
-        private readonly List<Car> _carList = new List<Car>();
+        private List<Car> _records = new List<Car>();
 
         public void Add(List<Car> cars)
         {
 
-            // Implementing Guard Clauses before the method running
-            if (cars.Count == 0) throw new ArgumentException("The list is empty...");
-            if (cars == null) throw new InvalidOperationException("Cannot process a null list...");
+            if (cars == null) throw new ArgumentNullException("The list cannot be null...");
 
-            foreach (var car in cars)
-            {
-                // Check null fields
-                if (car.Id == null) throw new ArgumentNullException("Id cannot be null");
-                if (car.Name == null) throw new ArgumentNullException("Id cannot be null");
-                if (car.Year == null) throw new ArgumentNullException("Id cannot be null");
-                if (car.Brand == null) throw new ArgumentNullException("Id cannot be null");
-                if (car.Type == null) throw new ArgumentNullException("Id cannot be null");
-            }
+            _records.AddRange(cars);
 
             try
             {
 
-                using (var writer = new StreamWriter(@"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv", true))
-                using (var csvWriter = new CsvHelper.CsvWriter(writer, CultureInfo.InvariantCulture))
+                foreach (var car in _records)
                 {
-                    Console.WriteLine("Inserting new cars on the list");
-                    csvWriter.WriteRecords(cars);
+                    if (car.Year < 2000)
+                    {
+                        throw new CsvInvalidException(
+                            message: $"Cannot insert a new card record before 2000.",
+                            violatingValue: car.Year,
+                            ruleName: 101
+                         );
+                    } else
+                    {
+                        using (var writer = new StreamWriter(@"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv", true))
+                        using (var csvWriter = new CsvHelper.CsvWriter(writer, CultureInfo.InvariantCulture))
+                        {
+                            Console.WriteLine("Inserting new cars on the list");
+                            csvWriter.WriteRecords(_records);
+                        }
+                    }
                 }
+
+
             }
             catch (CsvInvalidException e)
             {
-
                 Console.WriteLine($"CSV invalid exception: {e.ViolatingValue}");
             }
 
@@ -58,25 +62,23 @@ namespace cs_notes_and_code.challenges.CsvReader
         {
             try
             {
-                var result = _carList.FirstOrDefault(car => car.Id == id);
 
-                using (var writer = new StreamWriter(@"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv"))
-
-                using (var csv = new CsvHelper.CsvReader(writer, CultureInfo.InvariantCulture))
+                using (var reader = new StreamReader(@"C:\Users\heyhe\development\cs-notes-and-code\challenges\CsvReader\Files\entity.csv", true))
+                using (var csv = new CsvHelper.CsvReader(reader, CultureInfo.InvariantCulture))
                 {
-                    _carList = csv.GetRecords<Car>().ToList();
+                    _records = csv.GetRecords<Car>().ToList();
 
-                    for(int i = 0; _carList.Count; ++i)
+                    for (int i = 0; i < _records.Count; ++i)
                     {
-                        
+                        if (_records[i].Id == id)
+                        {
+                            _records.RemoveAt(i);
+                        }
                     }
                 }
 
-                    if (result != null)
-                    {
-                        _carList.RemoveAt(result.Id);
-                        Console.WriteLine("Car removed from the list...");
-                    }
+                // Needs to rewrite the file again after deleting by id
+
             }
             catch (Exception)
             {
