@@ -78,6 +78,33 @@ namespace cs_notes_and_code.challenges.Day_19_20
                 Console.WriteLine($"{item.Id,-5} | {item.Name,-30} | {item.Value,15:C2}");
             });
         }
+        public void Report_AverageValueByCategory()
+        {
+            var query = _product
+                .GroupBy(a => a.Category)
+                .Select(b => new
+                {
+                    Category = b.Key,
+                    AverageValue = b.Average(c => c.Value)
+                })
+                .OrderByDescending(x => x.AverageValue)
+                .ToList();
 
+            Console.WriteLine();
+            Console.WriteLine("Average Value By Category");
+            Console.WriteLine();
+
+            Console.WriteLine($"{"Category",-20} | {"Average Value",15}");
+
+            Console.WriteLine($"{new string('-', 20)}-+-{new string('-', 15)}");
+
+            query.ForEach(item =>
+            {
+                Console.WriteLine(
+                    $"{item.Category,-20} | {item.AverageValue,15:C2}");
+            });
+
+            Console.WriteLine();
+        }
     }
 }
