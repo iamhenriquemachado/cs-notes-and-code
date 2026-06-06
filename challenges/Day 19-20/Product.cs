@@ -11,6 +11,8 @@ namespace cs_notes_and_code.challenges.Day_19_20
         public int Id { get; set; }
         public string Name { get; set; }
         public string SalesPerson { get; set; }
+
+        public string Category { get; set; }
         public decimal Value { get; set; }
         public DateTime Date { get; set; } 
     }
