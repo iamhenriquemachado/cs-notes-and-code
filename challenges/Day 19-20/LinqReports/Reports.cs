@@ -18,19 +18,20 @@ namespace cs_notes_and_code.challenges.Day_19_20
             if (product == null) throw new ArgumentNullException("Cannot insert a null product list.");
             _product.AddRange(product);
 
-            //Console.WriteLine($"{"ID",-4} | {"Name",-30} | {"SalesPerson",-20} | {"Value",12} | {"Date",-10}");
+            Console.WriteLine($"{"ID",-4} | {"Name",-30} | {"SalesPerson",-20} | {"Value",12} | {"Date",-10}");
 
-            //Console.WriteLine($"{new string('-', 4)}-+-{new string('-', 30)}-+-{new string('-', 20)}-+-{new string('-', 12)}-+-{new string('-', 10)}");
+            Console.WriteLine($"{new string('-', 4)}-+-{new string('-', 30)}-+-{new string('-', 20)}-+-{new string('-', 12)}-+-{new string('-', 10)}");
 
-            //foreach (var p in product)
-            //{
-            //    Console.WriteLine(
-            //        $"{p.Id,-4} | " +
-            //        $"{p.Name,-30} | " +
-            //        $"{p.SalesPerson,-20} | " +
-            //        $"{p.Value,12:C2} | " +
-            //        $"{p.Date:dd/MM/yyyy}");
-            //}
+
+            foreach (var p in product)
+            {
+                Console.WriteLine(
+                    $"{p.Id,-4} | " +
+                    $"{p.Name,-30} | " +
+                    $"{p.SalesPerson,-20} | " +
+                    $"{p.Value,12:C2} | " +
+                    $"{p.Date:dd/MM/yyyy}");
+            }
         }
 
         public void Report_TotalSalesPerPerson()
