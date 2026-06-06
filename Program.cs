@@ -31,4 +31,8 @@ List<Product> products = new List<Product>
 };
 
 reports.AddProduct(products);
-reports.Report_TotalSalesPerPerson();
+
+DateTime initialDate = new DateTime(2025, 01, 01);
+DateTime finalDate = new DateTime(2028, 01, 01);
+
+reports.Report_Top3SalesInThePeriod(initialDate, finalDate);
