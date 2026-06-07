@@ -13,16 +13,16 @@ namespace cs_notes_and_code.challenges.CalculatorNetSalary
 
         }
 
-        public void CalculateNetSalary()
+        public void CalculateNetSalary(string salaryValue)
         {
             Console.WriteLine("Hello! Please, insert your salary.");
 
-            string salary = Console.ReadLine();
+            salaryValue = Console.ReadLine();
 
             float rateInss = 11.0F;
             float rateIrpf = 0;
 
-            if (!int.TryParse(salary, out int result))
+            if (!int.TryParse(salaryValue, out int result))
             {
                 Console.WriteLine("Not a valid number. Please, check and try again.");
                 result = Convert.ToInt32(Console.ReadLine());
