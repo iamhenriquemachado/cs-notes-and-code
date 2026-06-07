@@ -107,5 +107,28 @@ namespace cs_notes_and_code.challenges.Day_19_20
 
             Console.WriteLine();
         }
+
+        public void Report_TopSellers(DateTime initialDate, DateTime finalDate)
+        {
+            var query = _product.Where(a => a.Date >= initialDate && a.Date <= finalDate)
+                .GroupBy(b => b.SalesPerson)
+                .Select(c => new
+                {
+                    SalesPerson = c.Key,
+                    Value = c.Sum(d => d.Value)
+                }).
+                OrderByDescending(e => e.Value)
+                .Take(3)
+                .ToList();
+
+            Console.WriteLine();
+            Console.WriteLine("Top 3 Sellers");
+            Console.WriteLine();
+
+            Console.WriteLine($" {"SalesPerson",-20} | {"Value",5} ");
+            Console.WriteLine($"{new string('-', 20)}-+-{new string('-', 15)}");
+
+            query.ForEach(query => Console.WriteLine($"{query.SalesPerson,-20} {query.Value,12:C2}"));
+        }
     }
 }

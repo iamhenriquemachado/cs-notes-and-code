@@ -35,4 +35,4 @@ reports.AddProduct(products);
 DateTime initialDate = new DateTime(2025, 01, 01);
 DateTime finalDate = new DateTime(2028, 01, 01);
 
-reports.Report_AverageValueByCategory();
+reports.Report_TopSellers(initialDate, finalDate);
