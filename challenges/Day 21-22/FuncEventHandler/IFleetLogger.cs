@@ -8,6 +8,7 @@ namespace cs_notes_and_code.challenges.Day_21_22.FuncEventHandler
 {
     internal interface IFleetLogger
     {
-        void DataLogger();
+        void LogWarning(string message);
+        void LogInfo(string message);
     }
 }

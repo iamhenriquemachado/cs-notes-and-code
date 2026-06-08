@@ -8,6 +8,6 @@ namespace cs_notes_and_code.challenges.Day_21_22.FuncEventHandler
 {
     internal interface IVehicleParser
     {
-        void RawDataParser(string[] arr);
+        Vehicle ParseLine(string rawLine);
     }
 }
