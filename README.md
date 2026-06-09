@@ -14,4 +14,14 @@ Before you dive in, here is a quick reality check on what you will (and won’t)
     
     You'll be amazed at how quickly this builds your critical thinking and debugging skills.
 
-You're going to surprise yourself with how much you can achieve. Let's get to work! 
+## How to use it
+
+This repository is pretty simple: You're going to see the day folder, inside it, you're going to find a markdown file with the concepts you need to learn and the challenge you need to solve.
+
+Everything below is an outline, and you should learn the item in order from top to bottom. 
+
+
+The `reference-and-challenge.md` is your best friend. Inside of it you're going to have explanation of the concept and some links that I've personally searched while I was learning the C# features. 
+
+## Table of contents
+
