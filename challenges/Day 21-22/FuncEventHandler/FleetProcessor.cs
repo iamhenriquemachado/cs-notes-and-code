@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using cs_notes_and_code.challenges.Day_21_22;
 using cs_notes_and_code.challenges.Day_21_22.FuncEventHandler.Events;
 using cs_notes_and_code.challenges.Day_21_22.FuncEventHandler.Exceptions;
@@ -13,7 +14,6 @@ namespace cs_notes_and_code.challenges.Day_21_22.FuncEventHandler
         private List<Vehicle> _vehicles = new List<Vehicle>();
         private readonly IVehicleParser _parser;
         private readonly IFleetLogger _logger;
-
         public event EventHandler<ProcessingProgressEventArgs> ProgressChanged;
 
         public FleetProcessor(IVehicleParser parser, IFleetLogger logger)
@@ -24,41 +24,32 @@ namespace cs_notes_and_code.challenges.Day_21_22.FuncEventHandler
 
         public void ProcessRawPayload(string[] rawData)
         {
-            try
+            for (int i = 0; i < rawData.Length; i++)
             {
-                foreach (var item in rawData)
+                try
                 {
-                    var splittedList = item.Split(',');
+                    var parsedData = _parser.ParseLine(rawData[i]);
 
-                    if (splittedList.Length < 5)
-                    {
-                        throw new ArgumentNullException("List is corrupted");
-                    }
+                    int percentage = ((i + 1) * 100) / rawData.Length;
+                    string batchName = rawData[i];
 
-                    _parser.ParseLine(item);
+                    OnProgressChanged(percentage, batchName);
+                }
+                catch (FormatException)
+                {
 
-                    var normalizeYear = Int32.TryParse(splittedList[2], out int year);
-                    var normalizeMileage = Int32.TryParse(splittedList[3], out int mileage);
-                    var normalizeStatus = bool.TryParse(splittedList[4], out bool status);
-
-                    Vehicle vehicle = new Vehicle()
-                    {
-                        Brand = splittedList[0],
-                        Model = splittedList[1],
-                        Year = year,
-                        Mileage = mileage,
-                        Active = status
-                    };
-
-                    _vehicles.Add(vehicle);
+                    throw new InvalidVehicleDataException(
+                    message: "Failed to parse numeric data type fields.", 
+                    rawLine: rawData[i], 
+                    validationRule: "DataTypeMismatch");
                 }
             }
-            catch (InvalidVehicleDataException e)
-            {
 
-                Console.WriteLine($"Message: {e.RawLine} / Validatio Rule: {e.ValidationRule}");
-            }
+        }
 
+        protected virtual void OnProgressChanged(int percentage, string batch)
+        {
+            ProgressChanged?.Invoke(this, new ProcessingProgressEventArgs(percentage, batch));
         }
     }
 }

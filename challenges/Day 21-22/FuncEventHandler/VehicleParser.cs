@@ -43,7 +43,7 @@ namespace cs_notes_and_code.challenges.Day_21_22.FuncEventHandler
             {
 
                 throw new InvalidVehicleDataException(
-                    message: "Failed to parse numeri data type fields.", rawLine: rawLine, validationRule: "DataTypeMismatch");
+                    message: "Failed to parse numeric data type fields.", rawLine: rawLine, validationRule: "DataTypeMismatch");
             }
         }
     }
