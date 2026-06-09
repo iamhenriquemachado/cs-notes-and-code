@@ -32,10 +32,10 @@ namespace cs_notes_and_code.challenges.Day_21_22.FuncEventHandler
             {
                 return new Vehicle
                 {
-                    Brand = columns[0], 
-                    Model = columns[1], 
+                    Brand = columns[0],
+                    Model = columns[1],
                     Year = int.Parse(columns[2].Trim()),
-                    Mileage = int.Parse(columns[3].Trim()), 
+                    Mileage = int.Parse(columns[3].Trim()),
                     Active = bool.Parse(columns[4].Trim())
                 };
             }
@@ -46,5 +46,6 @@ namespace cs_notes_and_code.challenges.Day_21_22.FuncEventHandler
                     message: "Failed to parse numeric data type fields.", rawLine: rawLine, validationRule: "DataTypeMismatch");
             }
         }
+
     }
 }
