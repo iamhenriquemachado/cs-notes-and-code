@@ -9,7 +9,7 @@ using cs_notes_and_code.challenges.Day_23_25.Interface;
 
 namespace cs_notes_and_code.challenges.Day_23_25
 {
-    internal class DataEngine : IEngine
+    internal class DataEngine : IDataEngine
     {
         private static readonly HttpClient _httpClient = new HttpClient();
         private readonly List<ViaCepResponse> _viaCepResponseList = new List<ViaCepResponse>();
@@ -45,15 +45,14 @@ namespace cs_notes_and_code.challenges.Day_23_25
 
         }
 
-        public List<ViaCepResponse> AddNewVehicle(ViaCepResponse viaCepResponse)
+        public void AddAddress(ViaCepResponse viaCepResponse)
         {
             _viaCepResponseList.Add(viaCepResponse);
-            return _viaCepResponseList;
         }
 
         public IEnumerable<ViaCepResponse> PrintJsonData()
         {
-            throw new NotImplementedException();
+            return _viaCepResponseList.AsReadOnly();
         }
     }
 }
