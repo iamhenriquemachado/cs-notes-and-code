@@ -8,7 +8,7 @@ namespace cs_notes_and_code.challenges.Day_23_25
 {
     internal class ViaCepResponse
     {
-        public string Cep { get; set; }
+        public int Cep { get; set; }
         public string Logradouro { get; set; }
         public string Complemento { get; set; }
         public string Unidade { get; set; }

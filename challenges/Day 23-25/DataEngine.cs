@@ -13,8 +13,13 @@ namespace cs_notes_and_code.challenges.Day_23_25
     {
         private static readonly HttpClient _httpClient = new HttpClient();
         private readonly List<ViaCepResponse> _viaCepResponseList = new List<ViaCepResponse>();
-        public async Task<string> FetchRawJsonFromWebAsync(string cep)
+        public async Task<string> FetchRawJsonFromWebAsync(int cep)
         {
+
+            if (cep == null)
+            {
+                Console.WriteLine("CEP cannot be null.");
+            }
 
             string url = $"https://viacep.com.br/ws/{cep}/json/";
 
