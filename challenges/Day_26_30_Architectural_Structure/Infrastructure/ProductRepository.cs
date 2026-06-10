@@ -10,24 +10,38 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Infrast
 {
     internal class ProductRepository : IProductRepository
     {
+        List<Product> _productsList = new List<Product>();
         public void Add(Product product)
         {
-            throw new NotImplementedException();
+            if (product != null)
+            {
+                _productsList.Add(product);
+            }
         }
 
         public Product? GetById(int id)
         {
-            throw new NotImplementedException();
+            var productFound = _productsList.FirstOrDefault(p => p.Id == id);
+            return productFound;
         }
 
         public IReadOnlyList<Product> List()
         {
-            throw new NotImplementedException();
+
+            var result = _productsList.ToList();
+
+            foreach (var p in result)
+            {
+                Console.WriteLine($"{p.Id,-3} | {p.Name,-21} | {p.Price,-15} | {p.Stock}");
+            }
+
+            return result;
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            var productFound = _productsList.FirstOrDefault(p => p.Id == id);
+            _productsList.Remove(productFound);
         }
     }
 }
