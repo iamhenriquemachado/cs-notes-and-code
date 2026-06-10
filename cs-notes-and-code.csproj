@@ -12,4 +12,9 @@
     <PackageReference Include="CsvHelper" Version="33.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="challenges\Day_26_30_Architectural_Structure\UI\" />
+    <Folder Include="challenges\Day_26_30_Architectural_Structure\Services\" />
+  </ItemGroup>
+
 </Project>
