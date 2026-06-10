@@ -36,3 +36,80 @@ That's exactly how this repository came to life.
 3. **The Challenge:** A practical problem you need to solve to solidify what you just learned.
 
 ## Table of Contents
+
+### Phase 1 · Syntax, Types, and Programming Logic
+- [Day 1-2 Syntax, Types, and Programming Logic](#day-1-2-syntax-types-and-programming-logic)
+- [Day 3-4 Control Flow and Loops](#day-3-4-control-flow-and-loops)
+- [Day 5-6 Methods and Static Classes](#day-5-6-methods-and-static-classes)
+- [Day 7-8 Collections and Data Structures](#day-7-8-collections-and-data-structures)
+
+### Phase 2 · Object-Oriented Programming
+- [Day 9-10 Classes, Properties, and Encapsulation](#day-9-10-classes-properties-and-encapsulation)
+- [Day 11-12 Inheritance and Polymorphism](#day-11-12-inheritance-and-polymorphism)
+- [Day 13-14 Interfaces and Dependency Injection](#day-13-14-interfaces-and-dependency-injection)
+- [Day 15-16 Generics and Repository Pattern](#day-15-16-generics-and-repository-pattern)
+- [Day 17-18 Exception Handling and File Processing](#day-17-18-exception-handling-and-file-processing)
+
+### Phase 3 · LINQ, Delegates, and Asynchronous Programming
+- [Day 19-20 LINQ Fundamentals and Data Queries](#day-19-20-linq-fundamentals-and-data-queries)
+- [Day 21-22 Delegates, Lambdas, and Events](#day-21-22-delegates-lambdas-and-events)
+- [Day 23-25 Async/Await and HTTP APIs](#day-23-25-asyncawait-and-http-apis)
+
+### Phase 4 · Integrated Project
+- [Day 26-27 Project Architecture and Domain Modeling](#day-26-27-project-architecture-and-domain-modeling)
+- [Day 28-29 Business Rules, Reports, and Integration](#day-28-29-business-rules-reports-and-integration)
+- [Day 30 Review, Refactoring, and Next Steps](#day-30-review-refactoring-and-next-steps)
+
+
+## Start Learning Here
+
+Follow the roadmap in order. Each topic builds upon concepts introduced in previous days.
+
+### Phase 1 · Syntax, Types, and Programming Logic
+
+- [Day 1-2: Syntax, Types, and Programming Logic](./challenges/day-01-02-salary-calculator/reference-and-challenge.md)
+- [Day 3-4: Control Flow and Loops](./challenges/day-03-04-inventory-menu/reference-and-challenge.md)
+- [Day 5-6: Methods and Static Classes](./challenges/day-05-06-math-library/reference-and-challenge.md)
+- [Day 7-8: Collections and Data Structures](./challenges/day-07-08-contact-agenda/reference-and-challenge.md)
+
+---
+
+### Phase 2 · Object-Oriented Programming
+
+- [Day 9-10: Classes, Properties, and Encapsulation](./challenges/day-09-10-product-crud/reference-and-challenge.md)
+- [Day 11-12: Inheritance and Polymorphism](./challenges/day-11-12-employee-hierarchy/reference-and-challenge.md)
+- [Day 13-14: Interfaces and Dependency Injection](./challenges/day-13-14-notification-system/reference-and-challenge.md)
+- [Day 15-16: Generics and Repository Pattern](./challenges/day-15-16-generic-repository/reference-and-challenge.md)
+- [Day 17-18: Exception Handling and File Processing](./challenges/day-17-18-csv-parser/reference-and-challenge.md)
+
+---
+
+### Phase 3 · LINQ, Delegates, and Async Programming
+
+- [Day 19-20: LINQ Fundamentals and Data Queries](./challenges/day-19-20-sales-reports-linq/reference-and-challenge.md)
+- [Day 21-22: Delegates, Lambdas, and Events](./challenges/day-21-22-data-pipeline/reference-and-challenge.md)
+- [Day 23-25: Async/Await and HTTP APIs](./challenges/day-23-25-viacep-client/reference-and-challenge.md)
+
+---
+
+### Phase 4 · Integrated Project
+
+- [Day 26-27: Project Architecture and Domain Modeling](./challenges/day-26-27-stock-system-foundation/reference-and-challenge.md)
+- [Day 28-29: Business Rules, Reports, and Integration](./challenges/day-28-29-stock-system-features/reference-and-challenge.md)
+- [Day 30: Review, Refactoring, and Next Steps](./challenges/day-30-review-and-refactor/reference-and-challenge.md)
+
+---
+
+### Recommended Learning Process
+
+For every module:
+
+1. Read the concepts.
+2. Study the reference implementation.
+3. Take notes.
+4. Complete the challenge without looking at the solution.
+5. Refactor your code.
+6. Compare your approach with the reference project.
+7. Move to the next topic.
+
+Good luck, and remember: consistency beats intensity. A little progress every day compounds into expertise.
