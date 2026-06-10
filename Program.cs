@@ -5,7 +5,7 @@ IDataEngine engine = new DataEngine();
 string cep = "14702020";
 
 string rawJsonResult = await engine.FetchRawJsonFromWebAsync(cep);
-ViaCepResponse structuredAddress = engine.ConvertJsonToClass(rawJsonResult);
+ViaCepResponse structuredAddress = await engine.ConvertJsonToClass(rawJsonResult);
 engine.AddAddress(structuredAddress);
 
 

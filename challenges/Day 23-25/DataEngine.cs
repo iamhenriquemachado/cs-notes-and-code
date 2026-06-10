@@ -17,28 +17,47 @@ namespace cs_notes_and_code.challenges.Day_23_25
         {
 
             string url = $"https://viacep.com.br/ws/{cep}/json/";
-            string responseBody = await _httpClient.GetStringAsync(url);
 
-            return responseBody;
+            using (CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(3)))
+            {
+                try
+                {
+                    HttpResponseMessage response = await _httpClient.GetAsync(url, cts.Token);
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    return responseBody;
+                }
+                catch (HttpRequestException e)
+                {
+
+                    return $"Error while requesting from the {url} - {e.StatusCode} / {e.Message}";
+                }
+            }
+
         }
-        public ViaCepResponse ConvertJsonToClass(string rawJson)
+        public async Task<ViaCepResponse> ConvertJsonToClass(string rawJson)
+
         {
-            ViaCepResponse addressObject = JsonSerializer.Deserialize<ViaCepResponse>(rawJson);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+            };
+
+            ViaCepResponse addressObject = JsonSerializer.Deserialize<ViaCepResponse>(rawJson, options);
 
             return new ViaCepResponse
             {
                 Cep = addressObject.Cep,
                 Logradouro = addressObject.Logradouro,
                 Complemento = addressObject.Complemento,
-                Unidade = addressObject.Unidade, 
-                Bairro = addressObject.Bairro, 
-                Localidade = addressObject.Localidade, 
-                Uf = addressObject.Uf, 
-                Estado = addressObject.Estado, 
-                Regiao = addressObject.Regiao, 
-                Ibge = addressObject.Ibge, 
-                Gia = addressObject.Gia, 
-                DDD = addressObject.DDD, 
+                Unidade = addressObject.Unidade,
+                Bairro = addressObject.Bairro,
+                Localidade = addressObject.Localidade,
+                Uf = addressObject.Uf,
+                Estado = addressObject.Estado,
+                Regiao = addressObject.Regiao,
+                Ibge = addressObject.Ibge,
+                Gia = addressObject.Gia,
+                DDD = addressObject.DDD,
                 Siafi = addressObject.Siafi
 
             };
