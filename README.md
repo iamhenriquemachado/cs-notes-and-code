@@ -67,126 +67,127 @@ That's exactly how this repository came to life.
 
 ## Start Learning Here
 
-Follow the roadmap in order. Each topic builds upon concepts introduced in previous days.
+Follow the roadmap in order. Each module builds on concepts introduced in previous days.
 
 ### Phase 1 · Syntax, Types, and Programming Logic
 
-➡️ **Begin with Day 1–2: Syntax, Types, and Programming Logic**
-➡️ **Quick Introduction:** This first module introduces the building blocks of C# programming. You'll learn how to work with variables, primitive types, user input, operators, conditional statements, and basic program flow. These concepts form the foundation for every project you'll build throughout the roadmap.
+#### Day 1–2 · Syntax, Types, and Programming Logic
 
-* [Day 1-2: Syntax, Types, and Programming Logic](./challenges/day-01-02-salary-calculator/reference-and-challenge.md)
+**Quick Introduction:**
+This first module introduces the building blocks of C# programming. You'll learn how to work with variables, primitive types, user input, operators, conditional statements, and basic program flow. These concepts form the foundation for every project you'll build throughout the roadmap.
 
----
+➡️ [Start Here](./challenges/day-01-02-salary-calculator/reference-and-challenge.md)
 
-➡️ **Begin with Day 3–4: Control Flow and Loops**
-➡️ **Quick Introduction:** Learn how programs make decisions and repeat actions. You'll work with conditionals, loops, switch expressions, and logical operators to build interactive console applications that respond to user input.
+#### Day 3–4 · Control Flow and Loops
 
-* [Day 3-4: Control Flow and Loops](./challenges/day-03-04-inventory-menu/reference-and-challenge.md)
+**Quick Introduction:**
+Learn how programs make decisions and repeat actions. You'll work with conditionals, loops, switch expressions, and logical operators to build interactive console applications that respond to user input.
 
----
+➡️ [Start Here](./challenges/day-03-04-inventory-menu/reference-and-challenge.md)
 
-➡️ **Begin with Day 5–6: Methods and Static Classes**
-➡️ **Quick Introduction:** Discover how to organize code into reusable methods and static classes. You'll learn method signatures, parameters, return types, overloading, and exception handling while creating your own utility library.
+#### Day 5–6 · Methods and Static Classes
 
-* [Day 5-6: Methods and Static Classes](./challenges/day-05-06-math-library/reference-and-challenge.md)
+**Quick Introduction:**
+Discover how to organize code into reusable methods and static classes. You'll learn method signatures, parameters, return types, overloading, and exception handling while creating your own utility library.
 
----
+➡️ [Start Here](./challenges/day-05-06-math-library/reference-and-challenge.md)
 
-➡️ **Begin with Day 7–8: Collections and Data Structures**
-➡️ **Quick Introduction:** Learn how to store, organize, and retrieve data efficiently using the most common C# collections. You'll work with lists, dictionaries, hash sets, and iteration patterns that appear in almost every application.
+#### Day 7–8 · Collections and Data Structures
 
-* [Day 7-8: Collections and Data Structures](./challenges/day-07-08-contact-agenda/reference-and-challenge.md)
+**Quick Introduction:**
+Learn how to store, organize, and retrieve data efficiently using the most common C# collections. You'll work with lists, dictionaries, hash sets, and iteration patterns that appear in almost every application.
+
+➡️ [Start Here](./challenges/day-07-08-contact-agenda/reference-and-challenge.md)
 
 ---
 
 ### Phase 2 · Object-Oriented Programming
 
-➡️ **Begin with Day 9–10: Classes, Properties, and Encapsulation**
-➡️ **Quick Introduction:** Enter the world of object-oriented programming by creating your first domain models. You'll learn classes, constructors, properties, encapsulation, and how to organize application logic through proper separation of responsibilities.
+#### Day 9–10 · Classes, Properties, and Encapsulation
 
-* [Day 9-10: Classes, Properties, and Encapsulation](./challenges/day-09-10-product-crud/reference-and-challenge.md)
+**Quick Introduction:**
+Enter the world of object-oriented programming by creating your first domain models. You'll learn classes, constructors, properties, encapsulation, and how to organize application logic through proper separation of responsibilities.
 
----
+➡️ [Start Here](./challenges/day-09-10-product-crud/reference-and-challenge.md)
 
-➡️ **Begin with Day 11–12: Inheritance and Polymorphism**
-➡️ **Quick Introduction:** Learn how objects can share behavior while still maintaining their own specialized implementations. You'll work with inheritance hierarchies, abstract classes, virtual methods, and runtime polymorphism.
+#### Day 11–12 · Inheritance and Polymorphism
 
-* [Day 11-12: Inheritance and Polymorphism](./challenges/day-11-12-employee-hierarchy/reference-and-challenge.md)
+**Quick Introduction:**
+Learn how objects can share behavior while still maintaining their own specialized implementations. You'll work with inheritance hierarchies, abstract classes, virtual methods, and runtime polymorphism.
 
----
+➡️ [Start Here](./challenges/day-11-12-employee-hierarchy/reference-and-challenge.md)
 
-➡️ **Begin with Day 13–14: Interfaces and Dependency Injection**
-➡️ **Quick Introduction:** Understand how professional applications achieve flexibility and maintainability through contracts and abstractions. You'll implement interfaces and explore the foundations of dependency injection.
+#### Day 13–14 · Interfaces and Dependency Injection
 
-* [Day 13-14: Interfaces and Dependency Injection](./challenges/day-13-14-notification-system/reference-and-challenge.md)
+**Quick Introduction:**
+Understand how professional applications achieve flexibility and maintainability through contracts and abstractions. You'll implement interfaces and explore the foundations of dependency injection.
 
----
+➡️ [Start Here](./challenges/day-13-14-notification-system/reference-and-challenge.md)
 
-➡️ **Begin with Day 15–16: Generics and Repository Pattern**
-➡️ **Quick Introduction:** Learn how to write reusable code that works with multiple data types. You'll explore generics, constraints, interfaces, and the repository pattern, which is widely used in enterprise applications.
+#### Day 15–16 · Generics and Repository Pattern
 
-* [Day 15-16: Generics and Repository Pattern](./challenges/day-15-16-generic-repository/reference-and-challenge.md)
+**Quick Introduction:**
+Learn how to write reusable code that works with multiple data types. You'll explore generics, constraints, interfaces, and the repository pattern, which is widely used in enterprise applications.
 
----
+➡️ [Start Here](./challenges/day-15-16-generic-repository/reference-and-challenge.md)
 
-➡️ **Begin with Day 17–18: Exception Handling and File Processing**
-➡️ **Quick Introduction:** Robust applications must handle unexpected situations gracefully. This module teaches exception handling, custom exceptions, validation strategies, and file processing techniques.
+#### Day 17–18 · Exception Handling and File Processing
 
-* [Day 17-18: Exception Handling and File Processing](./challenges/day-17-18-csv-parser/reference-and-challenge.md)
+**Quick Introduction:**
+Robust applications must handle unexpected situations gracefully. This module teaches exception handling, custom exceptions, validation strategies, and file processing techniques.
 
----
+➡️ [Start Here](./challenges/day-17-18-csv-parser/reference-and-challenge.md)
 
 ---
 
 ### Phase 3 · LINQ, Delegates, and Async Programming
 
-➡️ **Begin with Day 19–20: LINQ Fundamentals and Data Queries**
-➡️ **Quick Introduction:** Learn how to query, transform, group, and aggregate data using LINQ. You'll discover a more expressive and efficient way to work with collections without relying on manual loops.
+#### Day 19–20 · LINQ Fundamentals and Data Queries
 
-* [Day 19-20: LINQ Fundamentals and Data Queries](./challenges/day-19-20-sales-reports-linq/reference-and-challenge.md)
+**Quick Introduction:**
+Learn how to query, transform, group, and aggregate data using LINQ. You'll discover a more expressive and efficient way to work with collections without relying on manual loops.
 
----
+➡️ [Start Here](./challenges/day-19-20-sales-reports-linq/reference-and-challenge.md)
 
-➡️ **Begin with Day 21–22: Delegates, Lambdas, and Events**
-➡️ **Quick Introduction:** Explore the functional side of C#. You'll learn delegates, lambda expressions, event-driven programming, and how functions can be treated as first-class building blocks.
+#### Day 21–22 · Delegates, Lambdas, and Events
 
-* [Day 21-22: Delegates, Lambdas, and Events](./challenges/day-21-22-data-pipeline/reference-and-challenge.md)
+**Quick Introduction:**
+Explore the functional side of C#. You'll learn delegates, lambda expressions, event-driven programming, and how functions can be treated as first-class building blocks.
 
----
+➡️ [Start Here](./challenges/day-21-22-data-pipeline/reference-and-challenge.md)
 
-➡️ **Begin with Day 23–25: Async/Await and HTTP APIs**
-➡️ **Quick Introduction:** Modern applications constantly communicate with external services. In this module, you'll learn asynchronous programming, API consumption, JSON deserialization, and concurrent execution with tasks.
+#### Day 23–25 · Async/Await and HTTP APIs
 
-* [Day 23-25: Async/Await and HTTP APIs](./challenges/day-23-25-viacep-client/reference-and-challenge.md)
+**Quick Introduction:**
+Modern applications constantly communicate with external services. In this module, you'll learn asynchronous programming, API consumption, JSON deserialization, and concurrent execution with tasks.
 
----
+➡️ [Start Here](./challenges/day-23-25-viacep-client/reference-and-challenge.md)
 
 ---
 
 ### Phase 4 · Integrated Project
 
-➡️ **Begin with Day 26–27: Project Architecture and Domain Modeling**
-➡️ **Quick Introduction:** Apply everything you've learned by designing a complete application architecture. You'll structure projects into layers, define domain entities, and establish clear separation of concerns.
+#### Day 26–27 · Project Architecture and Domain Modeling
 
-* [Day 26-27: Project Architecture and Domain Modeling](./challenges/day-26-27-stock-system-foundation/reference-and-challenge.md)
+**Quick Introduction:**
+Apply everything you've learned by designing a complete application architecture. You'll structure projects into layers, define domain entities, and establish clear separation of concerns.
 
----
+➡️ [Start Here](./challenges/day-26-27-stock-system-foundation/reference-and-challenge.md)
 
-➡️ **Begin with Day 28–29: Business Rules, Reports, and Integration**
-➡️ **Quick Introduction:** Expand the integrated project by implementing business rules, reporting features, LINQ queries, exception handling, and external service integration.
+#### Day 28–29 · Business Rules, Reports, and Integration
 
-* [Day 28-29: Business Rules, Reports, and Integration](./challenges/day-28-29-stock-system-features/reference-and-challenge.md)
+**Quick Introduction:**
+Expand the integrated project by implementing business rules, reporting features, LINQ queries, exception handling, and external service integration.
 
----
+➡️ [Start Here](./challenges/day-28-29-stock-system-features/reference-and-challenge.md)
 
-➡️ **Begin with Day 30: Review, Refactoring, and Next Steps**
-➡️ **Quick Introduction:** The final module focuses on improving code quality. You'll review previous work, refactor implementations, eliminate technical debt, and identify the next areas of study in your C# journey.
+#### Day 30 · Review, Refactoring, and Next Steps
 
-* [Day 30: Review, Refactoring, and Next Steps](./challenges/day-30-review-and-refactor/reference-and-challenge.md)
+**Quick Introduction:**
+The final module focuses on improving code quality. You'll review previous work, refactor implementations, eliminate technical debt, and identify the next areas of study in your C# journey.
 
----
+➡️ [Start Here](./challenges/day-30-review-and-refactor/reference-and-challenge.md)
 
----
 
 ### Recommended Learning Process
 
