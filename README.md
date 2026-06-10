@@ -188,6 +188,7 @@ The final module focuses on improving code quality. You'll review previous work,
 
 ➡️ [Start Here](./challenges/day-30-review-and-refactor/reference-and-challenge.md)
 
+---
 
 ### Recommended Learning Process
 
