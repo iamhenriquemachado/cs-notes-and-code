@@ -22,6 +22,14 @@ The structure is simple:
 * **Daily Folders:** Each day has its own dedicated folder.
 * **The Guide:** Inside each folder, you'll find a `reference-and-challenge.md` file—this is going to be your best friend.
 
+## Why I Built This Repository
+
+This repository started as a personal code reference and a place to dump my notes for future projects. As I worked through these concepts, I realized how powerful it is to learn things in the right order. Reusing what you learned the day before to build out your own logic is an amazing way to learn how to code faster and deeper. 
+
+Because this approach worked perfectly for me, I thought: *"Why not make this public and help other Junior Developers learn C# through a structured pathway?"* 
+
+That's exactly how this repository came to life.
+
 ### Inside the Markdown File:
 1. **Concept Explanations:** A straightforward breakdown of the C# features you need to master that day.
 2. **Curated Links:** Resources and documentation I personally researched and selected while learning these features myself.
