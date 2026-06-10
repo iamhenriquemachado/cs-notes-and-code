@@ -2,7 +2,9 @@
 using cs_notes_and_code.challenges.Day_23_25.Interface;
 
 IDataEngine engine = new DataEngine();
-string cep = "14702020";
+
+Console.WriteLine("Type a ZIP Address to fetch the data...");
+string cep = Console.ReadLine();
 
 string rawJsonResult = await engine.FetchRawJsonFromWebAsync(cep);
 ViaCepResponse structuredAddress = await engine.ConvertJsonToClass(rawJsonResult);
