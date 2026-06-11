@@ -9,11 +9,13 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Domain.
     internal class StockMovement
     {
         public int ProductId { get; set; }
-        enum Type
+        public enum Type
         {
             Inbound,
             Outbound
         }
+
+        public Type MovementType { get; set; }
 
         public decimal Quantity { get; set; }
         public DateTime Date { get; set; }

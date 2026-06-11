@@ -25,7 +25,6 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Infrast
 
         public IReadOnlyList<StockMovement> List()
         {
-
             return _movements;
         }
     }

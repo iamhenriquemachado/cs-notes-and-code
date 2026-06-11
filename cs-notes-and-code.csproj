@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="challenges\Day_26_30_Architectural_Structure\UI\" />
+    <Folder Include="challenges\Day_26_27_Architectural_Structure\UI\" />
   </ItemGroup>
 
 </Project>
