@@ -17,6 +17,11 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Infrast
             _movements.Add(movement);
         }
 
+        public void Update(StockMovement movement)
+        {
+            _movements.Add(movement);
+        }
+
         public IReadOnlyList<StockMovement> GetByProductId(int productId)
         {
             var stockMovements = _movements.Where(m => m.ProductId == productId).ToList();

@@ -10,6 +10,7 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Domain.
     internal interface IStockMovementRepository
     {
         void Add(StockMovement movement);
+        void Update(StockMovement movement);
         IReadOnlyList<StockMovement> List();
         IReadOnlyList<StockMovement> GetByProductId(int productId);
     }

@@ -18,13 +18,13 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Service
         {
             var getProductById = _productRepository.GetById(id);
 
-            if (getProductById == null) throw new ArgumentNullException("ID invalid or null.");
+            if (getProductById == null) throw new ArgumentNullException(nameof(id), "ID invalid or null.");
 
-            int increaseProduct = getProductById.Stock += quantity;
+            int increaseProductMovement = getProductById.Stock += quantity;
             StockMovement stockMovement = new StockMovement
             {
                 ProductId = id,
-                Quantity = increaseProduct,
+                Quantity = increaseProductMovement,
                 MovementType = StockMovement.Type.Inbound,
                 Date = DateTime.Now
             };
@@ -38,11 +38,19 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Service
 
             var getProductById = _productRepository.GetById(id);
 
-            if (getProductById == null) throw new ArgumentNullException("ID cannot be null.");
+            if (getProductById == null) throw new Exception("ID cannot be null.");
+            if (getProductById.Stock < quantity) throw new Exception("InsufficientStockException");
 
-            if (getProductById.Stock < quantity) throw new ArgumentNullException("InsufficientStockException");
+            int decreaseProductMovement = getProductById.Stock -= quantity;
+            StockMovement stockMovement = new StockMovement
+            {
+                ProductId = id,
+                Quantity = quantity,
+                MovementType = StockMovement.Type.Outbound,
+                Date = DateTime.Now
+            };
 
-            getProductById.Stock += quantity;
+            _stockRepository.Add(stockMovement);
         }
     }
 }
