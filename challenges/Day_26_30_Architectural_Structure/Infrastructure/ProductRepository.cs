@@ -41,7 +41,10 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Infrast
         public void Remove(int id)
         {
             var productFound = _productsList.FirstOrDefault(p => p.Id == id);
-            _productsList.Remove(productFound);
+            if (productFound != null)
+            {
+                _productsList.Remove(productFound);
+            }
         }
     }
 }

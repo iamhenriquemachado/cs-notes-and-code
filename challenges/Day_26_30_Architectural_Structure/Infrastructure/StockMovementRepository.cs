@@ -10,19 +10,23 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Infrast
 {
     internal class StockMovementRepository : IStockMovementRepository
     {
+
+        private readonly List<StockMovement> _movements = new();
         public void Add(StockMovement movement)
         {
-            throw new NotImplementedException();
+            _movements.Add(movement);
         }
 
         public IReadOnlyList<StockMovement> GetByProductId(int productId)
         {
-            throw new NotImplementedException();
+            var stockMovements = _movements.Where(m => m.ProductId == productId).ToList();
+            return stockMovements;
         }
 
         public IReadOnlyList<StockMovement> List()
         {
-            throw new NotImplementedException();
+
+            return _movements;
         }
     }
 }
