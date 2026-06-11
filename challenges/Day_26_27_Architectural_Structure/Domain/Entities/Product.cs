@@ -11,7 +11,7 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Domain.
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public decimal Stock { get; set; }
+        public int Stock { get; set; }
         
     }
 }

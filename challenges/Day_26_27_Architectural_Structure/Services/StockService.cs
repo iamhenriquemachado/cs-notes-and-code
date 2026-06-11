@@ -14,16 +14,17 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Service
             _stockRepository = stockRepository;
         }
 
-        public void StockIn(int id, decimal quantity)
+        public void StockIn(int id, int quantity)
         {
             var getProductById = _productRepository.GetById(id);
 
             if (getProductById == null) throw new ArgumentNullException("ID invalid or null.");
 
+            int increaseProduct = getProductById.Stock += quantity;
             StockMovement stockMovement = new StockMovement
             {
                 ProductId = id,
-                Quantity = getProductById.Stock += quantity,
+                Quantity = increaseProduct,
                 MovementType = StockMovement.Type.Inbound,
                 Date = DateTime.Now
             };
@@ -32,7 +33,7 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Service
 
         }
 
-        public void StockOut(int id, decimal quantity)
+        public void StockOut(int id, int quantity)
         {
 
             var getProductById = _productRepository.GetById(id);

@@ -17,7 +17,7 @@ namespace cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Domain.
 
         public Type MovementType { get; set; }
 
-        public decimal Quantity { get; set; }
+        public int Quantity { get; set; }
         public DateTime Date { get; set; }
     }
 }
