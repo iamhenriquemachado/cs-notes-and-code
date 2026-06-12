@@ -18,5 +18,6 @@ namespace cs_notes_and_code.challenges.Day_26_27_Architectural_Structure.Excepti
             ViolatingRule = violatingValue;
             RowLine = rowLine;
         }
+
     }
 }

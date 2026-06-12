@@ -1,69 +1,39 @@
-﻿using cs_notes_and_code.challenges.Day_23_25;
-using cs_notes_and_code.challenges.Day_23_25.Interface;
+﻿using cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Domain.Entities;
+using cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Domain.Interfaces;
+using cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Infrastructure;
+using cs_notes_and_code.challenges.Day_26_30_Architectural_Structure.Services;
 
-IDataEngine engine = new DataEngine();
 
-bool correctZipAddress = false;
+IProductRepository productRepository = new ProductRepository();
+IStockMovementRepository stockRepository = new StockMovementRepository();
 
-do
+StockService service = new StockService(productRepository, stockRepository);
+
+
+var products = new List<Product>
 {
-    Console.WriteLine("Type a ZIP Address to fetch the data...");
-    string cep = Console.ReadLine();
+    new Product { Id = 1001, Name = "MacBook Pro", Price = 101.00m, Stock = 50 },
+    new Product { Id = 1002, Name = "Dell XPS 13", Price = 120.00m, Stock = 35 },
+    new Product { Id = 1003, Name = "Lenovo ThinkPad X1", Price = 95.50m, Stock = 40 },
+    new Product { Id = 1004, Name = "HP EliteBook", Price = 89.99m, Stock = 25 },
+    new Product { Id = 1005, Name = "Asus ZenBook", Price = 110.75m, Stock = 30 },
+    new Product { Id = 1006, Name = "Acer Swift 3", Price = 79.90m, Stock = 45 },
+    new Product { Id = 1007, Name = "Samsung Galaxy Book", Price = 99.99m, Stock = 20 },
+    new Product { Id = 1008, Name = "Microsoft Surface Laptop", Price = 130.00m, Stock = 15 },
+    new Product { Id = 1009, Name = "LG Gram", Price = 115.25m, Stock = 18 },
+    new Product { Id = 1010, Name = "Razer Blade 15", Price = 145.00m, Stock = 12 }
+};
 
-    if (!int.TryParse(cep, out int result))
-    {
-        Console.WriteLine("ZIP Address Incorret. Please, try again with a valid one.");
-        correctZipAddress = false;
-    }
-    else
-    {
-        correctZipAddress = true;
-    }
+foreach (var product in products)
+{
+    productRepository.Add(product);
 }
-while (!correctZipAddress);
 
-Console.WriteLine("Loop finished;");
-
-
-
-
-//int userMenu = 0;
-
-//while (userMenu == 0)
-//{
-//    string rawJsonResult = await engine.FetchRawJsonFromWebAsync(result);
-//    ViaCepResponse structuredAddress = await engine.ConvertJsonToClass(rawJsonResult);
-//    engine.AddAddress(structuredAddress);
-
-//    var response = engine.PrintJsonData();
-
-//    foreach (var item in response)
-//    {
-//        Console.WriteLine();
-//        Console.WriteLine("========== ADDRESS INFORMATION ==========");
-//        Console.WriteLine($"CEP         : {item.Cep}");
-//        Console.WriteLine($"Street      : {item.Logradouro}");
-//        Console.WriteLine($"Complement  : {item.Complemento}");
-//        Console.WriteLine($"Unit        : {item.Unidade}");
-//        Console.WriteLine($"District    : {item.Bairro}");
-//        Console.WriteLine($"City        : {item.Localidade}");
-//        Console.WriteLine($"State (UF)  : {item.Uf}");
-//        Console.WriteLine($"State       : {item.Estado}");
-//        Console.WriteLine($"Region      : {item.Regiao}");
-//        Console.WriteLine($"IBGE        : {item.Ibge}");
-//        Console.WriteLine($"GIA         : {item.Gia}");
-//        Console.WriteLine($"DDD         : {item.DDD}");
-//        Console.WriteLine($"SIAFI       : {item.Siafi}");
-//        Console.WriteLine("=========================================");
-//    }
-
-//    Console.WriteLine("Do you want to search for another CEP?");
-//    int exitOption = int.Parse(Console.ReadLine());
-
-//    userMenu = exitOption;
-//}
-
-
-
-
-
+Console.WriteLine("1 - Register Product");
+Console.WriteLine("2 - Stock In ");
+Console.WriteLine("3 - Stock Out");
+Console.WriteLine("4 - List all products");
+Console.WriteLine("5 - Low stock report");
+Console.WriteLine("6 - Recent movements report");
+Console.WriteLine("7 - Search supplier CEP");
+Console.WriteLine("8 - Exit");
